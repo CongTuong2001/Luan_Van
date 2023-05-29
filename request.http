@@ -1,0 +1,99 @@
+POST http://localhost:5001/login
+Content-Type: application/json
+
+{
+    "username": "19001",
+    "password": "19001"
+}
+
+###
+
+DELETE  http://localhost:5001/student/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk2MDI5YmE1ODI4OGU0OTMzMDM4NWIiLCJpYXQiOjE2MzcyMjEyMjV9.vPQmErPabfA9qdYfJKk_h2CpHMutgcv8vZGh_qB5V_8
+Content-Type: application/json
+
+{
+   "msv": "19001"
+}
+
+###
+POST http://localhost:5001/create-student-account
+Content-Type: application/json
+
+// Link liên kết Mongodb
+// mongodb+srv://group3:group3@sinhvien.youwj.mongodb.net/student_management?retryWrites=true&w=majority
+
+// Liên kết cá nhân
+// mongodb+srv://nguyencongtuong2002:Tuong2001@cluster0.furxmui.mongodb.net/Point?retryWrites=true&w=majority
+
+{
+    "username": "gvcn001",
+    "password": "gvcn001",
+    "lop": "4a1"
+}
+
+###
+
+POST http://localhost:5001/student/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk2MDI5YmE1ODI4OGU0OTMzMDM4NWIiLCJpYXQiOjE2MzcyMjEyMjV9.vPQmErPabfA9qdYfJKk_h2CpHMutgcv8vZGh_qB5V_8
+Content-Type: application/json
+
+{
+    "mhs": "19050",
+  "ten_hs": "Nguyễn Ngọc Khánh Tiên",
+  "birthday": {
+    "$date": "2012-05-20T00:00:00.000Z"
+  },
+  "gender_hs": "Nữ",
+  "address": "Vị Đông",
+  "Toan_I": 10,
+  "Toan_II": 10,
+  "Toan_CN": 10,
+  "TiengViet_I": 10,
+  "TiengViet_II": 10,
+  "TiengViet_CN": 10,
+  "KhoaHoc_I": 10,
+  "KhoaHoc_II": 10,
+  "KhoaHoc_CN": 10,
+  "DL_LS_I": 10,
+  "DL_LS_II": 10,
+  "DL_LS_CN": 10,
+  "DaoDuc_I": 10,
+  "DaoDuc_II": 10,
+  "DaoDuc_CN": 10,
+  "AnhVan_I": 10,
+  "AnhVan_II": 10,
+  "AnhVan_CN": 10,
+  "gpa_I": 10,
+  "gpa_II": 10,
+  "gpa_CN": 10,
+  "ranked": "Xuất Sắc",
+  "__v": 0,
+  "phone_cha": "0334988767",
+  "phone_me": "0334556468",
+  "ten_cha": "Nguyễn Công Văn",
+  "ten_lop": "5a1",
+  "ten_me": "Trần Thị Mỹ Linh"
+}
+###
+GET http://localhost:5001/student/all/4a1
+
+###
+PATCH    http://localhost:5001/post/update/1050
+Content-Type: application/json
+
+{
+    "content": "Upofdffdfstfdf"
+    
+}
+
+###
+GET http://localhost:5001/student/619f544fe5e3738cca25cf86
+
+###
+
+PATCH http://localhost:5001/post/comment/1050
+Content-Type: application/json
+{
+    "cmt": "hiencoi9999"
+}

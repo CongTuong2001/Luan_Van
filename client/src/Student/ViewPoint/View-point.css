@@ -1,0 +1,142 @@
+.Vp{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.Title {
+  text-align: center;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3);
+  font-size: 5rem;
+  font-weight: bolder;
+  margin-top: 1%;
+  color: #0b5592;
+}
+
+.Infor_site {
+  display: flex;
+  background-color: white;
+  padding: 2rem 3rem;
+  width: 60%;
+  height: 60rem;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+.Left_div {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 35px;
+}
+.Table_1 {
+  border: 1px solid black;
+  margin-left: 30px;
+  width: 500px;
+  margin-top: 15px;
+}
+
+.Table_2 {
+  border: 1px solid black;
+  margin-left: 30px;
+}
+
+th {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid black;
+}
+td {
+  text-align: center;
+  border: 1px solid black;
+}
+.td_gpa {
+  text-align: center;
+  border: 1px solid black;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.td_gpa1 {
+  text-align: center;
+  border: 1px solid black;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.thMon {
+  width: 35%;
+}
+
+.Right_div {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.Image_div {
+  padding-top: 30px;
+}
+.Title_infor {
+  display: flex;
+  font-size: 2rem;
+  text-align: left;
+}
+.Name_infor {
+  font-size: 2rem;
+  margin-left: 10px;
+  font-weight: bold;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+.Title_gpa {
+  font-size: 2.5rem;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+.Gpa_site {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  width: 100%;
+  padding: 2rem 3rem;
+  margin-left: 15%;
+  height: 55vh;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+.Info_title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.Gpa {
+  font-size: 2rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.Point_CN {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(0, 183, 255);
+}
+.Title_tc {
+  font-size: 3rem;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+.Rank_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.Rank {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.Site {
+  display: flex;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+.Btn_site {
+  position: static;
+  margin-top: 5vh;
+  text-align: center;
+}
+.ranked {
+  color: green;
+}

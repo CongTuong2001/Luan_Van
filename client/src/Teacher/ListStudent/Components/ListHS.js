@@ -1,0 +1,205 @@
+/* eslint-disable react/style-prop-object */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { Component } from "react";
+import Sort from "./Sort";
+import OneRowData from "./OneRowData";
+
+class ListHS extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      students: this.props.students,
+      filter: {
+        mhs: "",
+        ten_hs: "",
+        gender_hs: "",
+        gpa_I: "",
+        ranked: "",
+      },
+      sort: {
+        by: "mhs",
+        value: 1,
+      },
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      students: this.props.students,
+    });
+  }
+
+  onDelete = (_id, mhs) => {
+    this.props.onDelete(_id, mhs);
+  };
+
+  onChange = (event) => {
+    var target = event.target;
+    var ten_hs = target.ten_hs;
+    var value = target.value;
+    this.setState({
+      filter: {
+        [ten_hs]: value,
+      },
+    });
+  };
+
+  onSort = (sortBy, sortValue) => {
+    this.setState({
+      sort: {
+        by: sortBy,
+        value: sortValue,
+      },
+    });
+  };
+
+  render() {
+    var { filter, sort } = this.state;
+    var students = this.props.students;
+    console.log(students);
+    if (filter) {
+      if (filter.mhs) {
+        students = students.filter((student) => {
+          return student.mhs.indexOf(filter.mhs) === 0;
+        });
+      }
+      if (filter.ten_hs) {
+        students = students.filter((student) => {
+          return student.ten_hs.indexOf(filter.ten_hs) !== -1;
+        });
+      }
+      if (filter.gender_hs) {
+        students = students.filter((student) => {
+          if (filter.gender_hs === "all") return true;
+          else return student.gender_hs === filter.gender_hs;
+        });
+      }
+      if (filter.gpa_I) {
+        students = students.filter((student) => {
+          if (filter.gpa_I === "all") return true;
+          else if (filter.gpa_I === "2.0") return student.gpa_I < 2.0;
+          else {
+            var gpa_I = filter.gpa_I.toString().split("-");
+            return student.gpa_I > gpa_I[0] && student.gpa_I <= gpa_I[1];
+          }
+        });
+      }
+      if (filter.ranked) {
+        students = students.filter((student) => {
+          if (filter.ranked === "all") return true;
+          else return student.ranked === filter.ranked;
+        });
+      }
+    }
+
+    if (sort) {
+      if (sort.by === "mhs") {
+        students.sort((student1, student2) => {
+          //console.log(typeof student1.ten_hs,'-',student2.ten_hs);
+          if (student1.mhs > student2.mhs) return sort.value;
+          else if (student1.mhs < student2.mhs) return -sort.value;
+          else return 0;
+        });
+      } else if (sort.by === "ten_hs") {
+        students.sort((student1, student2) => {
+          if (student1.ten_hs.localeCompare(student2.ten_hs) < 0) return sort.value;
+          else if (student1.ten_hs.localeCompare(student2.ten_hs) > 0)
+            return -sort.value;
+          else return 0;
+        });
+      } else {
+        students.sort((student1, student2) => {
+          if (student1.gpa_I > student2.gpa_I) return sort.value;
+          else if (student1.gpa_I < student2.gpa_I) return -sort.value;
+          else return 0;
+        });
+      }
+    }
+    var studentList = students.map((student, index) => {
+      return (
+        <OneRowData
+          key={student.id}
+          index={index}
+          student={student}
+          onDelete={this.onDelete}
+        />
+      );
+    });
+    return (
+      <div>
+        <table className="table table-bordered table-hover">
+          <Sort onSort={this.onSort} />
+
+          <tbody>
+            {/* <tr>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="mhs"
+                  value={filter.mhs}
+                  onChange={this.onChange}
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  value={filter.ten_hs}
+                  onChange={this.onChange}
+                />
+              </td>
+              <td></td>
+              <td>
+                <select
+                  className="form-control"
+                  name="gender_hs"
+                  value={filter.gender_hs}
+                  onChange={this.onChange}
+                >
+                  <option value="all"></option>
+                  <option value="Nam">Nam</option>
+                  <option value="Nữ">Nữ</option>
+                </select>
+              </td>
+              <td>
+                <select
+                  className="form-control"
+                  name="gpa_I"
+                  value={filter.gpa_I}
+                  onChange={this.onChange}
+                >
+                  <option value="all"></option>
+                  <option value="8-10">8 - 10</option>
+                  <option value="5-7">5 - 7</option>
+                  <option value="<5">&lt; Dưới 5</option>
+                </select>
+              </td>
+              <td>
+                <select
+                  className="form-control"
+                  name="ranked"
+                  value={filter.ranked}
+                  onChange={this.onChange}
+                >
+                  <option value="all"></option>
+                  <option value="Xuất sắc">Xuất sắc </option>
+                  <option value="Giỏi">Giỏi</option>
+                  <option value="Khá">Khá</option>
+                  <option value="Trung Bình">Trung Bình</option>
+                  <option value="Yếu">Yếu</option>
+                </select>
+              </td>
+              <td></td>
+            </tr> */}
+            {studentList}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
+
+export default ListHS;
