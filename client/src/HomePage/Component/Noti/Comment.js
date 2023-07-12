@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Comment_site = styled.div`
@@ -9,7 +9,6 @@ const Comment_site = styled.div`
   padding: 1.2rem 2rem;
   box-sizing: border-box;
 `;
-
 const Comment_content = styled.p`
   // text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -17,7 +16,6 @@ const Comment_content = styled.p`
   font-size: 1.5rem;
   line-height: 1.6rem;
 `;
-
 const Comment_id = styled.p`
   // text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -25,10 +23,6 @@ const Comment_id = styled.p`
   font-size: 1.8rem;
   line-height: 2.1rem;
   font-weight: bold;
-`;
-const Comment_title = styled.p`
-  // text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 const Cmt = styled.div`
   background-color: white;

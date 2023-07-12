@@ -21,9 +21,6 @@ POST http://localhost:5001/create-student-account
 Content-Type: application/json
 
 // Link liên kết Mongodb
-// mongodb+srv://group3:group3@sinhvien.youwj.mongodb.net/student_management?retryWrites=true&w=majority
-
-// Liên kết cá nhân
 // mongodb+srv://nguyencongtuong2002:Tuong2001@cluster0.furxmui.mongodb.net/Point?retryWrites=true&w=majority
 
 {
@@ -95,5 +92,5 @@ GET http://localhost:5001/student/619f544fe5e3738cca25cf86
 PATCH http://localhost:5001/post/comment/1050
 Content-Type: application/json
 {
-    "cmt": "hiencoi9999"
+    "cmt": "hi"
 }

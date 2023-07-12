@@ -32,13 +32,9 @@ const Noti_title = styled.h1`
 
 function TodoList(props) {
   const [todos, setTodos] = useState([]);
-  const [ten_lop, setLop] = useState([]);
 
   useEffect(() => {
     async function fetchNotiList() {
-      // const ten_lop = sessionStorage.getItem("ten_lop").split(", ");
-      // setLop(ten_lop);
-
       const item =
         sessionStorage.getItem("item") === null
           ? sessionStorage.getItem("ten_lop")
@@ -56,19 +52,6 @@ function TodoList(props) {
     }
     fetchNotiList();
   }, []);
-
-  const ChooseClass = async (item) => {
-    sessionStorage.setItem("item", item);
-    await axios
-      .get(`http://localhost:5001/post/${item}`)
-      .then((response) => {
-        console.log(response.data);
-        setTodos(response.data.getpost);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   const addTodo = (todo) => {
     if (!todo.content || /^\s*$/.test(todo.content)) {
@@ -88,33 +71,6 @@ function TodoList(props) {
   if (role !== "student") {
     return (
       <>
-        <div className="dropdown">
-          {/* <button
-            type="button"
-            className="btn dropdown-toggle"
-            style={{display: "hidden"}}
-            id="dropdownMsv"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="true"
-          >
-            Lớp: &nbsp;
-          </button> */}
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-            {ten_lop.map((item, index) => (
-              <li key={index} onClick={() => ChooseClass(item)}>
-                <a role="button">{item}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* <label
-          style={{
-            padding: "5px",
-          }}
-        >
-          {sessionStorage.getItem("item")}
-        </label> */}
         <Noti_Form>
           <Noti_title>THÔNG BÁO</Noti_title>
           <NotiForm todos={todos} onSubmit={addTodo} />

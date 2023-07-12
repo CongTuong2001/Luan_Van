@@ -102,7 +102,8 @@ class ListHS extends Component {
         });
       } else if (sort.by === "ten_hs") {
         students.sort((student1, student2) => {
-          if (student1.ten_hs.localeCompare(student2.ten_hs) < 0) return sort.value;
+          if (student1.ten_hs.localeCompare(student2.ten_hs) < 0)
+            return sort.value;
           else if (student1.ten_hs.localeCompare(student2.ten_hs) > 0)
             return -sort.value;
           else return 0;
@@ -130,72 +131,7 @@ class ListHS extends Component {
         <table className="table table-bordered table-hover">
           <Sort onSort={this.onSort} />
 
-          <tbody>
-            {/* <tr>
-              <td></td>
-              <td>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="mhs"
-                  value={filter.mhs}
-                  onChange={this.onChange}
-                />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="name"
-                  value={filter.ten_hs}
-                  onChange={this.onChange}
-                />
-              </td>
-              <td></td>
-              <td>
-                <select
-                  className="form-control"
-                  name="gender_hs"
-                  value={filter.gender_hs}
-                  onChange={this.onChange}
-                >
-                  <option value="all"></option>
-                  <option value="Nam">Nam</option>
-                  <option value="Nữ">Nữ</option>
-                </select>
-              </td>
-              <td>
-                <select
-                  className="form-control"
-                  name="gpa_I"
-                  value={filter.gpa_I}
-                  onChange={this.onChange}
-                >
-                  <option value="all"></option>
-                  <option value="8-10">8 - 10</option>
-                  <option value="5-7">5 - 7</option>
-                  <option value="<5">&lt; Dưới 5</option>
-                </select>
-              </td>
-              <td>
-                <select
-                  className="form-control"
-                  name="ranked"
-                  value={filter.ranked}
-                  onChange={this.onChange}
-                >
-                  <option value="all"></option>
-                  <option value="Xuất sắc">Xuất sắc </option>
-                  <option value="Giỏi">Giỏi</option>
-                  <option value="Khá">Khá</option>
-                  <option value="Trung Bình">Trung Bình</option>
-                  <option value="Yếu">Yếu</option>
-                </select>
-              </td>
-              <td></td>
-            </tr> */}
-            {studentList}
-          </tbody>
+          <tbody>{studentList}</tbody>
         </table>
       </div>
     );
