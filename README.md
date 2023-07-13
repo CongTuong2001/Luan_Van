@@ -7,7 +7,7 @@
 3. The first terminal type `cd client` => `npm install` => `npm start`
 4. The second terminal type `cd server` => `npm install` => `npm start`
 
-account:
+### Account
 
 student:
 
